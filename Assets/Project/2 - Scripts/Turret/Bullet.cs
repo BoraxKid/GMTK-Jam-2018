@@ -21,16 +21,10 @@ public class Bullet : MonoBehaviour
 
     private void ApplyDamage(Collider2D collider)
     {
-        TurretShoot turret = null;
-        if ((turret = collider.GetComponent<TurretShoot>()) != null)
+        Health health = null;
+        if ((health = collider.GetComponent<Health>()) != null)
         {
-            turret.Hit(this.Damage);
-            return;
-        }
-        PlayerHitPoints playerHP = null;
-        if ((playerHP = collider.GetComponent<PlayerHitPoints>()) != null)
-        {
-            playerHP.Hit(this.Damage);
+            health.Hit(this.Damage);
             return;
         }
     }

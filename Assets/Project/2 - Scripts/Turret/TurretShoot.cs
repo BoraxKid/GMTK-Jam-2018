@@ -5,18 +5,19 @@ public class TurretShoot : MonoBehaviour
 {
     [SerializeField] private TurretSettings _settings;
 
+    private Health _health;
     private AcquireTarget _acquireTarget;
     private Collider2D _target;
     private float _elapsedTime; // Time since last shot
-    private int _remainingHitPoints;
 
     private void Awake()
     {
+        this._health = this.GetComponent<Health>();
         this._acquireTarget = this.GetComponent<AcquireTarget>();
         if (this._settings == null)
             Debug.LogWarning("Turret Settings missing!!");
         this._elapsedTime = 0.0f;
-        this._remainingHitPoints = this._settings.HitPoints;
+        this._health.SetStartingHitPoints(this._settings.HitPoints, true);
         this.InvokeRepeating("UpdateTarget", 0.1f, 1.0f);
     }
 
@@ -42,21 +43,5 @@ public class TurretShoot : MonoBehaviour
     private void UpdateTarget()
     {
         this._target = this._acquireTarget.GetTarget(this.transform, this._settings);
-    }
-
-    // Called when the turret is shot
-    public void Hit(int damage)
-    {
-        this._remainingHitPoints -= damage;
-        if (this._remainingHitPoints <= 0)
-        {
-            GameObject.Destroy(this.gameObject);
-            // TODO: Particle effects and sound
-        }
-    }
-
-    public void SetTarget(Collider2D target)
-    {
-        this._target = target;
     }
 }
