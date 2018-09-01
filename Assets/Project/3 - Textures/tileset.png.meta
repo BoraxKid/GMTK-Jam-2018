@@ -27,7 +27,7 @@ TextureImporter:
     21300044: tileset_22
     21300046: tileset_23
     21300048: turret_1
-    21300050: tileset_25
+    21300050: turret_2
     21300052: tileset_26
     21300054: tileset_27
     21300056: tileset_28
@@ -648,7 +648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_25
+      name: turret_2
       rect:
         serializedVersion: 2
         x: 16

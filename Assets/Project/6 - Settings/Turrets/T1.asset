@@ -11,10 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1235b0a10cde6d14b807a96dc6e99fcf, type: 3}
   m_Name: T1
   m_EditorClassIdentifier: 
+  TurretPrefab: {fileID: 114076574348438546, guid: 5e220ebb299adcd408197c109bab3e98,
+    type: 2}
   HitPoints: 10
-  Damage: 1
-  FiringRate: 300
+  Damage: 2
+  FiringRate: 60
   Range: 10
+  BuildingTime: 5
   BulletPrefab: {fileID: 114304024227255632, guid: 0e9da639dba09cf429f0be121fff07c5,
     type: 2}
   BulletVelocity: 10

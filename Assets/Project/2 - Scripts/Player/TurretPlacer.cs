@@ -2,16 +2,14 @@
 
 public class TurretPlacer : MonoBehaviour
 {
-    [SerializeField] private TurretHelper _turretPrefab;
     [SerializeField] private Transform _turretsContainer;
     [SerializeField] private int _playerTeamLayer;
 
     private TurretHelper _tmpTurret;
+    private float _tmpBuildingTime;
 
     private void Awake()
     {
-        if (this._turretPrefab == null)
-            Debug.LogWarning("Turret prefab missing!!");
         if (this._turretsContainer == null)
             Debug.LogWarning("Turret container missing!!");
     }
@@ -35,14 +33,14 @@ public class TurretPlacer : MonoBehaviour
         return (Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
-    public void StartPlacingTurret()
+    public void StartPlacingTurret(TurretSettings turretSettings)
     {
         if (this._tmpTurret != null)
             GameObject.Destroy(this._tmpTurret);
 
         this.enabled = true;
-
-        this._tmpTurret = GameObject.Instantiate(this._turretPrefab, this._turretsContainer);
+        this._tmpBuildingTime = turretSettings.BuildingTime;
+        this._tmpTurret = GameObject.Instantiate(turretSettings.TurretPrefab, this._turretsContainer);
         this._tmpTurret.transform.position = this.GetMouseScenePosition();
     }
 }
