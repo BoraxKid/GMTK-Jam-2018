@@ -3,20 +3,25 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _createHealthBar;
     [SerializeField] private UnityEvent _deathEvent;
+    [SerializeField] public Vector2 Offset; // Offset for Healthbar - Display in UI
 
-    [SerializeField] private int _startingHitPoints;
-
+    private HealthBar _healthBar;
+    private int _startingHitPoints;
     private int _remainingHitPoints;
 
-    private void Awake()
+    private void OnDestroy()
     {
-        this._remainingHitPoints = this._startingHitPoints;
+        if (this._healthBar)
+            GameObject.Destroy(this._healthBar.gameObject);
     }
 
     public void Hit(int damage)
     {
         this._remainingHitPoints -= damage;
+        if (this._healthBar != null)
+            this._healthBar.UpdateHealth(this._remainingHitPoints, this._startingHitPoints);
         if (this._remainingHitPoints <= 0)
         {
             GameObject.Destroy(this.gameObject);
@@ -24,10 +29,15 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void SetStartingHitPoints(int hp, bool setCurrentHP)
+    public void SetStartingHitPoints(int hp)
     {
         this._startingHitPoints = hp;
-        if (setCurrentHP)
-            this._remainingHitPoints = this._startingHitPoints;
+        this._remainingHitPoints = this._startingHitPoints;
+        this._createHealthBar.Invoke();
+    }
+
+    public void SetHealthBar(HealthBar healthBar)
+    {
+        this._healthBar = healthBar;
     }
 }

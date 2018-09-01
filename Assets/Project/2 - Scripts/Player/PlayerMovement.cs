@@ -3,6 +3,7 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private int _startingHitPoints;
     [SerializeField] private float _speed;
 
     private Rigidbody2D _rigidbody;
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         this._rigidbody = this.GetComponent<Rigidbody2D>();
+        this.GetComponent<Health>().SetStartingHitPoints(this._startingHitPoints);
     }
 
     private void Update()
