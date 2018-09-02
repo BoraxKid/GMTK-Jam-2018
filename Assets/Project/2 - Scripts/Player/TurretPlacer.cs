@@ -8,8 +8,9 @@ public class TurretPlacer : MonoBehaviour
     [SerializeField] public float PlacableDistance;
     [SerializeField] private TurretSettingsEvent _stopPlacingEvent;
 
+    public bool Building { get; set; }
+
     private TurretHelper _tmpTurret;
-    private float _tmpBuildingTime;
     private TurretSettings _tmpTurretSettings;
 
     private void Awake()
@@ -24,10 +25,11 @@ public class TurretPlacer : MonoBehaviour
 
         if (Input.GetButtonDown("Place Turret") && this._tmpTurret.CanPlace())
         {
-            // TODO: Construction time
             this._tmpTurret.gameObject.layer = this._playerTeamLayer;
-            this._tmpTurret.enabled = false;
+            this._tmpTurret.SetBuilding(true);
             this._stopPlacingEvent.Raise(this._tmpTurretSettings);
+            this._tmpTurret.TurretBuilder.SetTurretToBuild(this._tmpTurret, this._tmpTurretSettings);
+            this._tmpTurret.TurretBuilder.enabled = true;
             this._tmpTurret = null;
             this.enabled = false; // No updates necessary so we disable the component
         }
@@ -40,12 +42,13 @@ public class TurretPlacer : MonoBehaviour
 
     public void StartPlacingTurret(TurretSettings turretSettings)
     {
+        if (this.Building)
+            return;
         if (this._tmpTurret != null)
             GameObject.Destroy(this._tmpTurret);
 
         this.enabled = true;
         this._tmpTurretSettings = turretSettings;
-        this._tmpBuildingTime = turretSettings.BuildingTime;
         this._tmpTurret = GameObject.Instantiate(turretSettings.TurretPrefab, this._turretsContainer);
         this._tmpTurret._turretPlacer = this;
         this._tmpTurret.transform.position = this.GetMouseScenePosition();

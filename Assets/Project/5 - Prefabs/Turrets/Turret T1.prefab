@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114865507433328382}
   - component: {fileID: 61315579112066156}
   - component: {fileID: 114076574348438546}
+  - component: {fileID: 114955453308637402}
   - component: {fileID: 50637372551954812}
   - component: {fileID: 114003479687325198}
   - component: {fileID: 114499356633398810}
@@ -119,6 +120,7 @@ MonoBehaviour:
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _notPlaceableColor: {r: 1, g: 0, b: 0, a: 1}
   _placeableColor: {r: 0, g: 1, b: 0, a: 1}
+  TurretBuilder: {fileID: 114955453308637402}
 --- !u!114 &114201533375257902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,6 +249,37 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   _reactionTime: 0.06666668
+--- !u!114 &114955453308637402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606913207517962}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b75359f062ecf43a4c000d14ae0d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startBuildingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _updateBuildingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _stopBuildingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _playerTeamLayer: 8
+  _createBuildBarEvent: {fileID: 11400000, guid: f93e6c5e28cecab43aca667010116f0c,
+    type: 2}
+  _destroyBuildBarEvent: {fileID: 11400000, guid: 98476a35ac01fc040bc24852ea47651a,
+    type: 2}
 --- !u!212 &212799019335762762
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(TurretShoot))]
+[RequireComponent(typeof(SpriteRenderer), typeof(TurretShoot), typeof(TurretBuilder))]
 public class TurretHelper : MonoBehaviour
 {
     [SerializeField] private Color _normalColor;
@@ -12,14 +12,18 @@ public class TurretHelper : MonoBehaviour
 
     private SpriteRenderer _renderer;
     private TurretShoot _turretShoot;
+    public TurretBuilder TurretBuilder;
     private List<Collider2D> _triggeredColliders = new List<Collider2D>();
     private bool _validDistance;
+    private bool _building;
 
     private void Awake()
     {
         this._renderer = this.GetComponent<SpriteRenderer>();
         this._turretShoot = this.GetComponent<TurretShoot>();
+        this.TurretBuilder = this.GetComponent<TurretBuilder>();
         this._validDistance = false;
+        this._building = false;
     }
 
     private void OnEnable()
@@ -36,8 +40,15 @@ public class TurretHelper : MonoBehaviour
 
     private void Update()
     {
-        this.CheckValidDistance();
-        this.ModifyColor();
+        if (!this._building)
+        {
+            this.CheckValidDistance();
+            this.ModifyColor();
+        }
+        else
+        {
+            
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -80,5 +91,10 @@ public class TurretHelper : MonoBehaviour
     public bool CanPlace()
     {
         return (!this.IsTriggered() && this._validDistance);
+    }
+
+    public void SetBuilding(bool building)
+    {
+        this._building = building;
     }
 }
