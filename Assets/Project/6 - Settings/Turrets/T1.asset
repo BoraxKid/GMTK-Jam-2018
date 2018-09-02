@@ -15,9 +15,9 @@ MonoBehaviour:
     type: 2}
   HitPoints: 10
   Damage: 2
-  FiringRate: 60
+  FiringRate: 45
   Range: 10
-  BuildingTime: 5
+  BuildingTime: 2.5
   BulletPrefab: {fileID: 114304024227255632, guid: 0e9da639dba09cf429f0be121fff07c5,
     type: 2}
   BulletVelocity: 10

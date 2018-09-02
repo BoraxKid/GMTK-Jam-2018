@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private UnityEventInt _clearedAllWavesEvent;
     [SerializeField] private Tilemap[] _spawnerTilemaps;
     [SerializeField] private Transform _enemyTurretContainer;
+    [SerializeField] private Transform _dangerFXContainer;
+    [SerializeField] private GameObject _dangerPrefab;
     [SerializeField] private int _playerTeamLayer;
     [SerializeField] private int _enemyTeamLayer;
 
@@ -26,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
     private Dictionary<Tile, TurretSettings> _tileToTurretPrefab;
     private int _waveIndex;
     private List<TurretHelper> _remainingTurrets;
+    private List<GameObject> _dangerObjects;
     private bool _check;
 
     private void Awake()
@@ -33,9 +36,12 @@ public class EnemySpawner : MonoBehaviour
         this._waveIndex = 0;
         this._check = false;
         this._remainingTurrets = new List<TurretHelper>();
+        this._dangerObjects = new List<GameObject>();
 
         if (this._enemyTurretContainer == null)
             Debug.LogWarning("Enemy Turret Container missing!!");
+        if (this._dangerFXContainer == null)
+            Debug.LogWarning("Danger FX Container missing!!");
 
         foreach (Tilemap tilemap in this._spawnerTilemaps)
         {
@@ -70,8 +76,17 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void SpawnWave()
+    private void DestroyDangerFXs()
     {
+        foreach (GameObject dangerFX in this._dangerObjects)
+            GameObject.Destroy(dangerFX);
+        this._dangerObjects.Clear();
+    }
+
+    public void SpawnWaveOrDangerFX(bool wave)
+    {
+        if (wave)
+            this.DestroyDangerFXs();
         this._remainingTurrets.Clear();
 
         this._tileToTurretPrefab = new Dictionary<Tile, TurretSettings>();
@@ -96,13 +111,19 @@ public class EnemySpawner : MonoBehaviour
                         Vector3 tmp = this._spawnerTilemaps[this._waveIndex].GetCellCenterLocal(new Vector3Int(i, j, 0));
                         tmp.x += tilemapBounds.position.x;
                         tmp.y += tilemapBounds.position.y;
-                        this.SpawnTurret(this._tileToTurretPrefab[tile], tmp);
+                        if (wave)
+                            this.SpawnTurret(this._tileToTurretPrefab[tile], tmp);
+                        else
+                            this.SpawnDangerFX(tmp);
                     }
                 }
             }
         }
-        ++this._waveIndex;
-        this._check = true;
+        if (wave)
+        {
+            ++this._waveIndex;
+            this._check = true;
+        }
     }
 
     private void SpawnTurret(TurretSettings turretSettings, Vector3 position)
@@ -114,6 +135,13 @@ public class EnemySpawner : MonoBehaviour
         turret.GetComponent<AcquireTarget>().SetTargetLayer(this._playerTeamLayer);
         turret.Spawner = this;
         this._remainingTurrets.Add(turret);
+    }
+
+    private void SpawnDangerFX(Vector3 position)
+    {
+        GameObject dangerFX = GameObject.Instantiate(this._dangerPrefab, this._dangerFXContainer);
+        dangerFX.transform.position = position;
+        this._dangerObjects.Add(dangerFX);
     }
 
     public void NotifyDestroy(TurretHelper turret)

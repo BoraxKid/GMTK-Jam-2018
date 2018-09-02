@@ -18,7 +18,7 @@ TextureImporter:
     21300026: tile_metal_floor_6
     21300028: tileset_14
     21300030: tileset_15
-    21300032: tileset_16
+    21300032: danger
     21300034: tileset_17
     21300036: tileset_18
     21300038: tile_metal_floor_7
@@ -468,7 +468,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_16
+      name: danger
       rect:
         serializedVersion: 2
         x: 0
