@@ -33,9 +33,6 @@ public class HealthBar : MonoBehaviour
     private void Update()
     {
         Vector2 tmp = Camera.main.WorldToViewportPoint(this.Health.transform.position);
-        // tmp += this.Health.Offset;
-        // tmp.x = (tmp.x / (float)Screen.width) * 1280.0f;
-        // tmp.y = (tmp.y / (float)Screen.height) * 720.0f;
         Vector2 pos = new Vector2(tmp.x * this._canvasRectTransform.sizeDelta.x - this._canvasRectTransform.sizeDelta.x * 0.5f, tmp.y * this._canvasRectTransform.sizeDelta.y - this._canvasRectTransform.sizeDelta.y * 0.5f);
         this._rectTransform.anchoredPosition = pos + this.Health.Offset;
     }

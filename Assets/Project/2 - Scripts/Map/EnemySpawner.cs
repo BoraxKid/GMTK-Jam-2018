@@ -58,7 +58,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnTurret(TurretSettings turretSettings, Vector3 position)
     {
-        Debug.Log(position);
         TurretHelper turretHelper = GameObject.Instantiate(turretSettings.TurretPrefab, this._enemyTurretContainer);
         turretHelper.transform.position = position;
         turretHelper.enabled = false;

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61216485236113950}
   - component: {fileID: 114088662009282682}
   - component: {fileID: 50730375138216620}
+  - component: {fileID: 114141621197688126}
   - component: {fileID: 114385534153310926}
   - component: {fileID: 114872010184317012}
   - component: {fileID: 114391369407801322}
@@ -106,6 +107,18 @@ MonoBehaviour:
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _notPlaceableColor: {r: 1, g: 0, b: 0, a: 1}
   _placeableColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &114141621197688126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168204336257600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5fe94d513421f418a1282ef5fd238e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reactionTime: 0
 --- !u!114 &114142217909437446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,7 +176,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   _deathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114141621197688126}
+        m_MethodName: React
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1168204336257600}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   _hitEvent:

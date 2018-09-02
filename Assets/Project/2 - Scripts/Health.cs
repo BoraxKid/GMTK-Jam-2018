@@ -14,8 +14,16 @@ public class Health : MonoBehaviour
 
     private void OnDestroy()
     {
+        this.DestroyHealthBar();
+    }
+
+    public void DestroyHealthBar()
+    {
         if (this._healthBar)
+        {
             GameObject.Destroy(this._healthBar.gameObject);
+            this._healthBar = null;
+        }
     }
 
     public void Hit(int damage)
@@ -25,10 +33,7 @@ public class Health : MonoBehaviour
             this._healthBar.UpdateHealth(this._remainingHitPoints, this._startingHitPoints);
         this._hitEvent.Invoke();
         if (this._remainingHitPoints <= 0)
-        {
-            GameObject.Destroy(this.gameObject);
             this._deathEvent.Invoke();
-        }
     }
 
     public void SetStartingHitPoints(int hp)

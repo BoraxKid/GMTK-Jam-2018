@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public int Damage { private get; set; }
     public Vector2 Direction { private get; set; }
     public float Velocity { private get; set; }
+    public Collider2D Parent { private get; set; }
 
     private void FixedUpdate()
     {
@@ -13,6 +14,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (this.Parent == collider)
+            return;
         // Debug.Log("Trigger with " + collider.name);
         GameObject.Destroy(this.gameObject);
         // TODO: Particle effects and sound

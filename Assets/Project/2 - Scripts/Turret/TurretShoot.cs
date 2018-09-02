@@ -36,7 +36,8 @@ public class TurretShoot : MonoBehaviour
         {
             if (this._target != null)
             {
-                Bullet tmp = GameObject.Instantiate(this._settings.BulletPrefab, this.transform);
+                Bullet tmp = GameObject.Instantiate(this._settings.BulletPrefab);
+                tmp.Parent = this.GetComponent<Collider2D>();
                 tmp.transform.position = this.transform.position;
                 tmp.Damage = this._settings.Damage;
                 tmp.Velocity = this._settings.BulletVelocity;
