@@ -17,8 +17,12 @@ public class TurretShoot : MonoBehaviour
         if (this._settings == null)
             Debug.LogWarning("Turret Settings missing!!");
         this._elapsedTime = 0.0f;
-        this._health.SetStartingHitPoints(this._settings.HitPoints);
         this.InvokeRepeating("UpdateTarget", 0.1f, 1.0f);
+    }
+
+    private void Start()
+    {
+        this._health.SetStartingHitPoints(this._settings.HitPoints);
     }
 
     private void Update()

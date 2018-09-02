@@ -42,4 +42,9 @@ public class AcquireTarget : MonoBehaviour
         }
         return (best);
     }
+
+    public void SetTargetLayer(int targetLayer)
+    {
+        this._targetLayer = 1 << targetLayer;
+    }
 }

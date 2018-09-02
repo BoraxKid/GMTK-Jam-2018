@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         this._rigidbody = this.GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
         this.GetComponent<Health>().SetStartingHitPoints(this._startingHitPoints);
     }
 
