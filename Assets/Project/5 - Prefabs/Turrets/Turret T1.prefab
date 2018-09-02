@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4792629492306822}
   - component: {fileID: 212799019335762762}
+  - component: {fileID: 114865507433328382}
   - component: {fileID: 61315579112066156}
   - component: {fileID: 114076574348438546}
   - component: {fileID: 50637372551954812}
@@ -149,6 +150,33 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  _hitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212799019335762762}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114865507433328382}
+        m_MethodName: React
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   Offset: {x: -6, y: 10.5}
 --- !u!114 &114807989316228270
 MonoBehaviour:
@@ -167,6 +195,34 @@ MonoBehaviour:
   _layersLineCast:
     serializedVersion: 2
     m_Bits: 817
+--- !u!114 &114865507433328382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606913207517962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a2c848f97311d34a9c147b785b45736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reactionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212799019335762762}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _reactionTime: 0.06666668
 --- !u!212 &212799019335762762
 SpriteRenderer:
   m_ObjectHideFlags: 1

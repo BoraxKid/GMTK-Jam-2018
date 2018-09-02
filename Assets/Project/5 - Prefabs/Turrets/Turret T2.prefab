@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4091461842707990}
   - component: {fileID: 212591413311887346}
+  - component: {fileID: 114142217909437446}
   - component: {fileID: 61216485236113950}
   - component: {fileID: 114088662009282682}
   - component: {fileID: 50730375138216620}
@@ -105,6 +106,34 @@ MonoBehaviour:
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _notPlaceableColor: {r: 1, g: 0, b: 0, a: 1}
   _placeableColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &114142217909437446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168204336257600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a2c848f97311d34a9c147b785b45736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reactionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212591413311887346}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _reactionTime: 0.06666668
 --- !u!114 &114385534153310926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,6 +164,33 @@ MonoBehaviour:
   _deathEvent:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _hitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 212591413311887346}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114142217909437446}
+        m_MethodName: React
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Offset: {x: -6, y: 6.5}

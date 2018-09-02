@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private UnityEvent _createHealthBar;
     [SerializeField] private UnityEvent _deathEvent;
+    [SerializeField] private UnityEvent _hitEvent;
     [SerializeField] public Vector2 Offset; // Offset for Healthbar - Display in UI
 
     private HealthBar _healthBar;
@@ -22,6 +23,7 @@ public class Health : MonoBehaviour
         this._remainingHitPoints -= damage;
         if (this._healthBar != null)
             this._healthBar.UpdateHealth(this._remainingHitPoints, this._startingHitPoints);
+        this._hitEvent.Invoke();
         if (this._remainingHitPoints <= 0)
         {
             GameObject.Destroy(this.gameObject);

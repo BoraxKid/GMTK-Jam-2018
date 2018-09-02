@@ -25,6 +25,11 @@ public class TurretShoot : MonoBehaviour
         this._health.SetStartingHitPoints(this._settings.HitPoints);
     }
 
+    private void OnDestroy()
+    {
+        this.CancelInvoke();
+    }
+
     private void Update()
     {
         if (this._elapsedTime >= 60.0f / this._settings.FiringRate)
