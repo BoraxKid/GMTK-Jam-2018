@@ -132,6 +132,7 @@ public class EnemySpawner : MonoBehaviour
         turret.transform.position = position;
         turret.enabled = false;
         turret.gameObject.layer = this._enemyTeamLayer;
+        turret.GetComponent<EnemyTurret>().enabled = true;
         turret.GetComponent<AcquireTarget>().SetTargetLayer(this._playerTeamLayer);
         turret.Spawner = this;
         this._remainingTurrets.Add(turret);

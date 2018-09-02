@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114499356633398810}
   - component: {fileID: 114201533375257902}
   - component: {fileID: 114807989316228270}
+  - component: {fileID: 114761449483034816}
   m_Layer: 2
   m_Name: Turret T1
   m_TagString: Untagged
@@ -204,6 +205,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   Offset: {x: -6, y: 10.5}
+--- !u!114 &114761449483034816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606913207517962}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805fff56cf2ba7344bf46598b980bec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114807989316228270
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114385534153310926}
   - component: {fileID: 114872010184317012}
   - component: {fileID: 114391369407801322}
+  - component: {fileID: 114819885647319268}
   m_Layer: 2
   m_Name: Turret T2
   m_TagString: Untagged
@@ -268,6 +269,17 @@ MonoBehaviour:
     type: 2}
   _destroyBuildBarEvent: {fileID: 11400000, guid: 98476a35ac01fc040bc24852ea47651a,
     type: 2}
+--- !u!114 &114819885647319268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168204336257600}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805fff56cf2ba7344bf46598b980bec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114872010184317012
 MonoBehaviour:
   m_ObjectHideFlags: 1
