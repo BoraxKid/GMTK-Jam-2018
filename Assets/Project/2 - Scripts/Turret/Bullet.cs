@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (this.Parent == collider)
+        if (this.Parent == collider || this.Parent.gameObject.layer == collider.gameObject.layer)
             return;
         // Debug.Log("Trigger with " + collider.name);
         GameObject.Destroy(this.gameObject);

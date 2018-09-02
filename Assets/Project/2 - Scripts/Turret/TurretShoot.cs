@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AcquireTarget))]
 public class TurretShoot : MonoBehaviour
 {
     [SerializeField] private TurretSettings _settings;
+    [SerializeField] private UnityEvent _shotEvent;
 
     private Health _health;
     private AcquireTarget _acquireTarget;
@@ -44,6 +46,7 @@ public class TurretShoot : MonoBehaviour
                 Vector2 heading = this._target.transform.position - this.transform.position;
                 tmp.Direction = heading / heading.magnitude;
                 this._elapsedTime = 0.0f;
+                this._shotEvent.Invoke();
             }
         }
         else
@@ -52,6 +55,9 @@ public class TurretShoot : MonoBehaviour
 
     private void UpdateTarget()
     {
+        Collider2D currentTarget = this._target;
         this._target = this._acquireTarget.GetTarget(this.transform, this._settings);
+        if (this._target != null && this._target != currentTarget)
+            this._elapsedTime = 0.0f;
     }
 }
