@@ -22,7 +22,10 @@ public class BuildBarCreator : MonoBehaviour
 
     public void DestroyBuildBar(TurretHelper turret)
     {
-        GameObject.Destroy(this._buildBars[turret].gameObject);
-        this._buildBars.Remove(turret);
+        if (this._buildBars.ContainsKey(turret))
+        {
+            GameObject.Destroy(this._buildBars[turret].gameObject);
+            this._buildBars.Remove(turret);
+        }
     }
 }

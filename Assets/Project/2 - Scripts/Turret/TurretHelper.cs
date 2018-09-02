@@ -8,7 +8,8 @@ public class TurretHelper : MonoBehaviour
     [SerializeField] private Color _notPlaceableColor;
     [SerializeField] private Color _placeableColor;
 
-    public TurretPlacer _turretPlacer { get; set; }
+    public TurretPlacer TurretPlacer { get; set; }
+    public EnemySpawner Spawner { get; set; }
 
     private SpriteRenderer _renderer;
     private TurretShoot _turretShoot;
@@ -19,11 +20,20 @@ public class TurretHelper : MonoBehaviour
 
     private void Awake()
     {
+        this.Spawner = null;
         this._renderer = this.GetComponent<SpriteRenderer>();
         this._turretShoot = this.GetComponent<TurretShoot>();
         this.TurretBuilder = this.GetComponent<TurretBuilder>();
         this._validDistance = false;
         this._building = false;
+    }
+
+    private void OnDestroy()
+    {
+        if (this.Spawner)
+        {
+            this.Spawner.NotifyDestroy(this);
+        }
     }
 
     private void OnEnable()
@@ -44,10 +54,6 @@ public class TurretHelper : MonoBehaviour
         {
             this.CheckValidDistance();
             this.ModifyColor();
-        }
-        else
-        {
-            
         }
     }
 
@@ -77,7 +83,7 @@ public class TurretHelper : MonoBehaviour
 
     private void CheckValidDistance()
     {
-        if (Vector3.Distance(this.transform.position, this._turretPlacer.Player.position) <= this._turretPlacer.PlacableDistance)
+        if (Vector3.Distance(this.transform.position, this.TurretPlacer.Player.position) <= this.TurretPlacer.PlacableDistance)
             this._validDistance = true;
         else
             this._validDistance = false;

@@ -50,7 +50,7 @@ public class TurretPlacer : MonoBehaviour
         this.enabled = true;
         this._tmpTurretSettings = turretSettings;
         this._tmpTurret = GameObject.Instantiate(turretSettings.TurretPrefab, this._turretsContainer);
-        this._tmpTurret._turretPlacer = this;
+        this._tmpTurret.TurretPlacer = this;
         this._tmpTurret.transform.position = this.GetMouseScenePosition();
     }
 }

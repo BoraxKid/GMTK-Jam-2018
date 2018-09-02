@@ -2,43 +2,43 @@ fileFormatVersion: 2
 guid: e1b88560d5fb8f04c9ed3745cbbadb3d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: tile_metal_floor
+    21300000: tile_metal_floor_0
     21300002: tile_not_allowed
     21300004: tileset_2
-    21300006: tileset_3
-    21300008: tileset_4
-    21300010: tileset_5
+    21300006: tile_metal_floor_1
+    21300008: tile_metal_floor_2
+    21300010: tile_metal_floor_3
     21300012: tileset_6
     21300014: tileset_7
     21300016: tileset_8
     21300018: tileset_9
     21300020: tileset_10
-    21300022: tileset_11
-    21300024: tileset_12
-    21300026: tileset_13
+    21300022: tile_metal_floor_4
+    21300024: tile_metal_floor_5
+    21300026: tile_metal_floor_6
     21300028: tileset_14
     21300030: tileset_15
     21300032: tileset_16
     21300034: tileset_17
     21300036: tileset_18
-    21300038: tileset_19
-    21300040: tileset_20
-    21300042: tileset_21
+    21300038: tile_metal_floor_7
+    21300040: tile_metal_floor_8
+    21300042: tile_metal_floor_9
     21300044: tileset_22
     21300046: tileset_23
-    21300048: turret_1
-    21300050: turret_2
+    21300048: turret_1_white
+    21300050: turret_2_white
     21300052: tileset_26
-    21300054: tileset_27
-    21300056: tileset_28
+    21300054: tile_metal_floor_10
+    21300056: tile_metal_floor_11
     21300058: tileset_29
     21300060: tileset_30
     21300062: tileset_31
-    21300064: tileset_32
-    21300066: tileset_33
+    21300064: turret_1
+    21300066: turret_2
     21300068: tileset_34
-    21300070: tileset_35
-    21300072: tileset_36
+    21300070: tile_metal_floor_12
+    21300072: tile_metal_floor_13
     21300074: tileset_37
     21300076: tileset_38
     21300078: tileset_39
@@ -148,7 +148,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tile_metal_floor
+      name: tile_metal_floor_0
       rect:
         serializedVersion: 2
         x: 0
@@ -208,7 +208,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_3
+      name: tile_metal_floor_1
       rect:
         serializedVersion: 2
         x: 48
@@ -228,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_4
+      name: tile_metal_floor_2
       rect:
         serializedVersion: 2
         x: 64
@@ -248,7 +248,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_5
+      name: tile_metal_floor_3
       rect:
         serializedVersion: 2
         x: 80
@@ -368,7 +368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_11
+      name: tile_metal_floor_4
       rect:
         serializedVersion: 2
         x: 48
@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_12
+      name: tile_metal_floor_5
       rect:
         serializedVersion: 2
         x: 64
@@ -408,7 +408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_13
+      name: tile_metal_floor_6
       rect:
         serializedVersion: 2
         x: 80
@@ -528,7 +528,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_19
+      name: tile_metal_floor_7
       rect:
         serializedVersion: 2
         x: 48
@@ -548,7 +548,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_20
+      name: tile_metal_floor_8
       rect:
         serializedVersion: 2
         x: 64
@@ -568,7 +568,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_21
+      name: tile_metal_floor_9
       rect:
         serializedVersion: 2
         x: 80
@@ -628,7 +628,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turret_1
+      name: turret_1_white
       rect:
         serializedVersion: 2
         x: 0
@@ -648,7 +648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turret_2
+      name: turret_2_white
       rect:
         serializedVersion: 2
         x: 16
@@ -688,7 +688,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_27
+      name: tile_metal_floor_10
       rect:
         serializedVersion: 2
         x: 48
@@ -708,7 +708,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_28
+      name: tile_metal_floor_11
       rect:
         serializedVersion: 2
         x: 64
@@ -788,7 +788,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_32
+      name: turret_1
       rect:
         serializedVersion: 2
         x: 0
@@ -808,7 +808,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_33
+      name: turret_2
       rect:
         serializedVersion: 2
         x: 16
@@ -848,7 +848,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_35
+      name: tile_metal_floor_12
       rect:
         serializedVersion: 2
         x: 48
@@ -868,7 +868,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_36
+      name: tile_metal_floor_13
       rect:
         serializedVersion: 2
         x: 64
